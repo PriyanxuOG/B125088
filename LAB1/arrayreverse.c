@@ -1,24 +1,27 @@
-#include<stdio.h>
+#include <stdio.h>
 
-void displayReverse(int arr[],int n){
-    printf("Array in reverse order: ");
-    for (int i=n-1;i>=0;i--){
-      printf("%d",arr[i]); 
+int reverse_arr(int arr[], int n){
+    for(int i = 0 ;i < n/2; i++){
+        int temp = arr[i];
+        arr[i] = arr[n-1-i];
+        arr[n-1-i] = temp;
     }
-     printf("/n");
+    printf("The reversed array is: \n");
+    for(int i = 0; i < n; i++){
+        printf("%d  ", arr[i]);
+    }
+    return 0;
 }
 
-int main (){
+int main(){
     int n;
-    printf("Enter number of elements (N):");
-    scanf("%d",&n);
-
+    printf("Enter the number of Elements in your array : ");
+    scanf("%d", &n);
     int arr[n];
-    printf("Enter %d integers:/n",n);
-    for (int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    displayReverse(arr,n);
-    return 0;
 
+    printf("Enter the elements: \n");
+    for(int i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+    }
+    reverse_arr(arr, n);
 }
